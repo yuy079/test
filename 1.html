@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.js"></script>
+<script>
+
+function userSignUp(username, password, email, phone){
+	var user = new Parse.User();
+	user.set("username", username);
+	user.set("password", password);
+	user.set("email", email);
+
+	// other fields can be set just like with Parse.Object
+	user.set("phone", phone);
+
+	user.signUp(null, {
+	  success: function(user) {
+	    
+	  },
+	  error: function(user, error) {
+	    // Show the error message somewhere and let the user try again.
+	    alert("Error: " + error.code + " " + error.message);
+	  }
+	});
+}
+
+// function checkLogin(user, password)	{
+
+// }
+    Parse.initialize("myappID");
+    Parse.serverURL = 'http://54.153.41.120/parse';
+    // var GameScore = Parse.Object.extend("GameScore");
+    // var gameScore = new GameScore();
+    // gameScore.save({playerName: "Kir"}).then(function(object) {
+    //     alert("yay! it worked");
+    // });
+    
+    
+    var user = new Parse.User();
+	user.set("username", "my name");
+	user.set("password", "my pass");
+	user.set("email", "email@example.com");
+
+	// other fields can be set just like with Parse.Object
+	user.set("phone", "415-392-0202");
+
+	user.signUp(null, {
+	  success: function(user) {
+	    // Hooray! Let them use the app now.
+	  },
+	  error: function(user, error) {
+	    // Show the error message somewhere and let the user try again.
+	    alert("Error: " + error.code + " " + error.message);
+	  }
+	});
+</script>
+</head>
+<body>
+<a href ="./2.html">Sign Up</a>
+</body>
+</html>
